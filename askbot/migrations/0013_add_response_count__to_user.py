@@ -14,12 +14,12 @@ class Migration(SchemaMigration):
         within the forum application
         """
         try:
-            db.add_column(
+            '''db.add_column(
                     u'auth_user', 
                     'response_count', 
                     self.gf('django.db.models.fields.IntegerField')(default=0, ), 
                     keep_default=False
-                )
+                )'''
         except:
             print 'probably already have column User.response_count'
             pass

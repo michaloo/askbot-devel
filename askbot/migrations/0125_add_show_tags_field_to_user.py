@@ -10,7 +10,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding model show_marked_tags fields to the model auth_user
-        try:
+        '''try:
             db.add_column(
                 u'auth_user',
                 'show_marked_tags',
@@ -20,7 +20,7 @@ class Migration(SchemaMigration):
             )
         except:
             pass
-    
+        '''
     
     def backwards(self, orm):
         

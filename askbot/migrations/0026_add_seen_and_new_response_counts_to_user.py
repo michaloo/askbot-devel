@@ -8,12 +8,12 @@ class Migration(SchemaMigration):
     
     def forwards(self, orm):
         # Adding fields
-        try:
+        '''try:
             db.add_column('auth_user', 'new_response_count', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
             db.add_column('auth_user', 'seen_response_count', self.gf('django.db.models.fields.IntegerField')(default=0), keep_default=False)
         except:
             pass
-    
+        '''
     def backwards(self, orm):
         # Deleting fields
         db.delete_column('auth_user', 'new_response_count')

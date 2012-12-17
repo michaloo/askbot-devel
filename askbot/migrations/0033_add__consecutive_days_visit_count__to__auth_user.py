@@ -10,12 +10,12 @@ class Migration(SchemaMigration):
         
         # Adding field 'User.consecutive_days_visit_count'
         try:
-            db.add_column(
+            '''db.add_column(
                     u'auth_user',
                     'consecutive_days_visit_count',
                     self.gf('django.db.models.fields.IntegerField')(default = 0, max_length = 2),
                     keep_default=False
-                )
+                )'''
         except:
             pass
     

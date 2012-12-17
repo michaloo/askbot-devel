@@ -7,11 +7,11 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        try:
-            db.add_column(u'auth_user', 'avatar_type', self.gf('django.db.models.fields.CharField')(max_length=1, default='n'), keep_default=False)
+        ''''try:
+            #db.add_column(u'auth_user', 'avatar_type', self.gf('django.db.models.fields.CharField')(max_length=1, default='n'), keep_default=False)
         except:
             pass
-
+        '''
     def backwards(self, orm):
         db.delete_column(u'auth_user', 'avatar_type')
 

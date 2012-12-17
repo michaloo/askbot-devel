@@ -10,12 +10,12 @@ class Migration(SchemaMigration):
         
         # Adding field 'User.status'
         try:
-            db.add_column(
+            '''db.add_column(
                     u'auth_user',
                     'status',
                     self.gf('django.db.models.fields.CharField')(default ='w', max_length = 2),
                     keep_default=False
-                )
+                )'''
         except:
             pass
     

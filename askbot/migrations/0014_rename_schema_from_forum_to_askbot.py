@@ -10,16 +10,16 @@ app_dir_name = os.path.basename(os.path.dirname(os.path.dirname(__file__)))
 class Migration(SchemaMigration):
     
     def forwards(self, orm):
-        try:
-            db.rename_table('forum_anonymousanswer', 'askbot_anonymousanswer')
-            db.rename_table('forum_anonymousquestion', 'askbot_anonymousquestion')
-            db.rename_table('forum_emailfeedsetting', 'askbot_emailfeedsetting')
-            db.rename_table('forum_markedtag', 'askbot_markedtag')
-            db.rename_table('forum_questionview', 'askbot_questionview')
+        ''''try:
+            #db.rename_table('forum_anonymousanswer', 'askbot_anonymousanswer')
+            #db.rename_table('forum_anonymousquestion', 'askbot_anonymousquestion')
+            #db.rename_table('forum_emailfeedsetting', 'askbot_emailfeedsetting')
+            #db.rename_table('forum_markedtag', 'askbot_markedtag')
+            #db.rename_table('forum_questionview', 'askbot_questionview')
             db.rename_table('forum_validationhash', 'askbot_validationhash')
         except:
             pass
-    
+        '''
     
     def backwards(self, orm):
         if app_dirname == 'forum':

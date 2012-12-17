@@ -7,12 +7,12 @@ from django.db import models
 class Migration(SchemaMigration):
     
     def forwards(self, orm):
-        try:
+        '''try:
             # Adding field 'User.interesting_tags'
             db.add_column(u'auth_user', 'subscribed_tags', self.gf('django.db.models.fields.TextField')(blank=True, default = ''), keep_default=False)
         except:
             pass
-
+        '''
     def backwards(self, orm):
         # Deleting field 'User.interesting_tags'
         db.delete_column('auth_user', 'subscribed_tags')

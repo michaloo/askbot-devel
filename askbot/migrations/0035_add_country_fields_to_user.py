@@ -9,12 +9,12 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding model country fields to the model auth_user
-        try:
-            db.add_column(u'auth_user', 'country', self.gf('django_countries.fields.CountryField')(max_length=2, blank=True, null=True))
-            db.add_column(u'auth_user', 'show_country', self.gf('django.db.models.fields.BooleanField')(default=False, blank=True))
+        '''try:
+            #db.add_column(u'auth_user', 'country', self.gf('django_countries.fields.CountryField')(max_length=2, blank=True, null=True))
+            #db.add_column(u'auth_user', 'show_country', self.gf('django.db.models.fields.BooleanField')(default=False, blank=True))
         except:
             pass
-    
+        '''
     
     def backwards(self, orm):
         

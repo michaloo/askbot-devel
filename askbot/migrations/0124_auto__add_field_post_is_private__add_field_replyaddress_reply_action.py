@@ -26,7 +26,7 @@ class Migration(SchemaMigration):
         try:
             db.start_transaction()
             # Adding field 'User.interesting_tags'
-            db.add_column(u'auth_user', 'email_signature', self.gf('django.db.models.fields.TextField')(blank=True, default = ''), keep_default=False)
+            #db.add_column(u'auth_user', 'email_signature', self.gf('django.db.models.fields.TextField')(blank=True, default = ''), keep_default=False)
             db.commit_transaction()
         except:
             db.rollback_transaction()

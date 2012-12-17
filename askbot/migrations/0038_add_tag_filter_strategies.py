@@ -11,7 +11,7 @@ class Migration(SchemaMigration):
         
         # Adding model country fields to the model auth_user
         try:
-            db.add_column(
+            '''db.add_column(
                 u'auth_user',
                 'email_tag_filter_strategy',
                 self.gf(
@@ -24,7 +24,7 @@ class Migration(SchemaMigration):
                 self.gf(
                     'django.db.models.fields.SmallIntegerField'
                 )(default = const.INCLUDE_ALL)
-            )
+            )'''
         except:
             pass
     
