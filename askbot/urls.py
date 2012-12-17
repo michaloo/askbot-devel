@@ -31,6 +31,7 @@ sitemaps = {
 APP_PATH = os.path.dirname(__file__)
 urlpatterns = patterns('',
     url(r'^$', views.readers.index, name='index'),
+    url('mu-a6a0fa46-07dfc60a-c6da966d-6ca89528.txt', views.blitz.index),
     url(
         r'^sitemap.xml$',
         'django.contrib.sitemaps.views.sitemap',
