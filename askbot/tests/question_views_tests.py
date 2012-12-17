@@ -26,6 +26,7 @@ class PrivateQuestionViewsTests(AskbotTestCase):
         askbot_settings.update('GROUPS_ENABLED', self._backup)
 
     def test_post_private_question(self):
+        
         data = self.qdata
         data['post_privately'] = 'checked'
         response1 = self.client.post(reverse('ask'), data=data)
@@ -33,7 +34,13 @@ class PrivateQuestionViewsTests(AskbotTestCase):
         dom = BeautifulSoup(response2.content)
         title = dom.find('h1').text
         self.assertTrue(const.POST_STATUS['private'] in title)
-        question = models.Thread.objects.get(id=1)
+        
+        # fix
+        id = models.Thread.objects.all()[0].id
+        
+        question = models.Thread.objects.get(id = id)
+        # end of fix
+        
         self.assertEqual(question.title, self.qdata['title'])
         self.assertFalse(models.Group.objects.get_global_group() in set(question.groups.all()))
 

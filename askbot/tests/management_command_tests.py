@@ -40,6 +40,7 @@ class ManagementCommandTests(AskbotTestCase):
         user_one.save()
         # Create a second user and transfer all objects from 'user_one' to 'user_two'
         user_two = self.create_user(username='unique')
+        
         management.call_command('merge_users', user_one.id, user_two.id)
         # Check that the first user was deleted
         self.assertEqual(models.User.objects.filter(pk=user_one.id).count(), 0)
@@ -48,6 +49,6 @@ class ManagementCommandTests(AskbotTestCase):
         self.assertEqual(user_two.posts.get_comments().filter(pk=comment.id).count(), 1)
         #todo: change groups to django groups
         #then replace to 3 back to 2 in the line below
-        user_two = models.User.objects.get(pk=2)
+        user_two = models.User.objects.get(pk=user_two.id)
         self.assertEqual(user_two.gold, number_of_gold) 
         self.assertEqual(user_two.reputation, reputation)
