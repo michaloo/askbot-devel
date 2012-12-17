@@ -16,19 +16,19 @@ class MergeUsersBaseCommand(BaseCommand):
     def handle(self, *arguments, **options):
 
         self.parse_arguments(*arguments)
-
+        
         for rel in User._meta.get_all_related_objects():
             try:
                 self.process_field(rel.model, rel.field.name)
             except Exception, error:
                 self.stdout.write(u'Warning: %s\n' % error)
-
+        
         for rel in User._meta.get_all_related_many_to_many_objects():
             try:
                 self.process_m2m_field(rel.model, rel.field.name)
             except Exception, error:
                 self.stdout.write(u'Warning: %s\n' % error)
-
+        
         self.process_custom_user_fields()
 
         self.cleanup() 
@@ -51,6 +51,12 @@ class MergeUsersBaseCommand(BaseCommand):
         filter_condition = {field_name: self.from_user}
         related_objects_qs = model.objects.filter(**filter_condition)
         update_condition = {field_name: self.to_user}
+        
+        # Dirty fix: there are already AuthUserGroups and EmailFeedSetting records for new user
+        if model.__name__ == 'AuthUserGroups' or model.__name__ == 'EmailFeedSetting':
+            return
+        # End of dirty fix
+        
         related_objects_qs.update(**update_condition)
 
     def process_m2m_field(self, model, field_name):
